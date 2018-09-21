@@ -8,19 +8,24 @@ import { NavbarComponent } from '../common/navbar/navbar.component';
 import { MaterialModule } from '../material/material.module';
 import { JobsComponent } from './jobs/jobs.component';
 import { HistoryComponent } from './history/history.component';
+import { CreateJobComponent } from './jobs/create-job/create-job.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AdminComponent,
     DashboardComponent,
     NavbarComponent,
     JobsComponent,
-    HistoryComponent],
+    HistoryComponent,
+    CreateJobComponent],
   providers: [],
   bootstrap: [AdminComponent],
   exports: [AdminComponent]

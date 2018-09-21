@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { HistoryComponent } from './history/history.component';
+import { CreateJobComponent } from './jobs/create-job/create-job.component';
 
 const adminRoutes: Routes = [
   {
@@ -14,7 +15,10 @@ const adminRoutes: Routes = [
             path: 'dashboard', component: DashboardComponent,
         },
         {
-          path: 'jobs', component: JobsComponent
+          path: 'jobs', component: JobsComponent,
+        },
+        {
+          path: 'jobs/createjob', component: CreateJobComponent
         },
         {
           path: 'history', component: HistoryComponent
