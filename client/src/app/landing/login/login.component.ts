@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
           this.authenticationService.finishAuthentication();
         }
       }, (error: any) => {
+        this.loading = false;
         this.message.type = error;
         this.message.text = error.error.error.message;
       });
