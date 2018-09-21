@@ -17,7 +17,7 @@ export class AuthenticationService {
     ));
   }
   finishAuthentication(): void {
-    this.router.navigateByUrl('/admin/dashboard');
+    this.router.navigateByUrl('/admin/jobs');
   }
 
   isAuthenticated(): boolean {
