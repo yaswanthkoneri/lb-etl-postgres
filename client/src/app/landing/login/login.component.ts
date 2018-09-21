@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  message: any = {};
 
 
   constructor(
@@ -43,7 +44,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.authenticationService.finishAuthentication();
         }
-
+      }, (error: any) => {
+        this.message.type = error;
+        this.message.text = error.error.error.message;
       });
     }
 

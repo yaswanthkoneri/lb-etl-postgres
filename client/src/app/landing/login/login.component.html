@@ -9,6 +9,8 @@
             <div class="login-logo"><img src="/assets/images/engage3-etl.png" /></div>
             <div class="login-logo-txt">Welcome, please login to continue...</div>
             <form name="loginform" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+
                 <div class="form-group">
                     <mat-form-field>
                         <input type="text" matInput placeholder="User name" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />

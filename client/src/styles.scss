@@ -12,6 +12,7 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.my-table,
 .mat-form-field,
 button {
     font-family: 'Quicksand', sans-serif!important;
@@ -31,6 +32,81 @@ button {
     text-align: center
 }
 
+.pull-left {
+    float: left;
+}
+
 .pull-right {
     float: right;
+}
+
+.layout {
+    padding: 30px;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+.page-heading {
+    font-size: 22px;
+    color: #F48C00;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.table-haed-set {
+    .mat-form-field-appearance-legacy {
+        .mat-form-field-infix {
+            padding: 0 0 5px 0;
+        }
+    }
+}
+
+.btn-default {
+    background-color: #EE8A00;
+    color: #fff;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+    top: 20px;
+}
+
+.mat-form-field-label-wrapper {
+    top: -.84375em;
+    padding-top: .84375em;
+}
+
+input.mat-input-element {
+    margin-top: 0;
+    height: 20px;
+    padding: 5px;
+}
+
+.mat-form-field-infix {
+    border-top: 0 solid transparent;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.my-table {
+    border: 1px solid #EFEFEF;
+    font-size: 16px;
+    .mat-header-cell {
+        font-size: 16px;
+    }
+    thead {
+        tr {
+            background-color: #F2F2F2;
+            th {
+                color: #000;
+            }
+        }
+    }
 }
