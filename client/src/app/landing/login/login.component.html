@@ -1,4 +1,4 @@
-<h2>Login</h2>
+<div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
 <form name="loginform" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <mat-form-field>

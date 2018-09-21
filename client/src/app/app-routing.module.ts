@@ -5,7 +5,7 @@ import { AuthenticationService } from './services/authentication/authentication.
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'admin/dashboard',
+    redirectTo: 'admin/jobs',
     pathMatch: 'full'
   },
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: './landing/landing.module#LandingModule'
   },
-  { path: '**', redirectTo: 'admin/dashboard' },
+  { path: '**', redirectTo: 'admin/jobs' },
   // {
   //   path: '**',
   //   redirectTo: '/'
