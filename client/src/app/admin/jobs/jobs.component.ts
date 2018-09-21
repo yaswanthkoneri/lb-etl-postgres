@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 import { JobsService } from '../../services/jobs/jobs.service';
+import { Router} from '@angular/router';
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -17,7 +19,7 @@ export interface PeriodicElement {
 export class JobsComponent implements OnInit {
   jobs: any = [];
   loading: boolean;
-  constructor(private jobsService: JobsService) { }
+  constructor(private jobsService: JobsService, private router: Router) { }
   dataSource;
   ELEMENT_DATA = [];
   displayedColumns: string[] = ['id', 'name', 'no_of_error_records', 'no_of_input_records', 'no_of_output_records'];
@@ -39,6 +41,9 @@ export class JobsComponent implements OnInit {
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  createJob() {
+    this.router.navigate(['admin/jobs/createjob']);
   }
 
 }
