@@ -119,6 +119,14 @@ input.mat-input-element {
     .mat-header-cell {
         font-size: 16px;
     }
+    tr:nth-child(even) {
+        background-color: #fbfbfb;
+    }
+    tbody {
+        tr:hover {
+            background-color: #fafafa
+        }
+    }
     thead {
         tr {
             background-color: #F2F2F2;
