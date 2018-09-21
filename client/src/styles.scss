@@ -12,6 +12,7 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.mat-nav-list a,
 .my-table,
 .mat-form-field,
 button {
@@ -52,7 +53,14 @@ button {
     font-size: 22px;
     color: #F48C00;
     font-weight: 700;
+}
+
+.mt10 {
     margin-top: 10px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
 }
 
 .table-haed-set {
@@ -68,8 +76,18 @@ button {
     color: #fff;
 }
 
+.btn-cancel {
+    background-color: #083679;
+    color: #fff;
+}
+
+.btn-create {
+    background-color: #32AF4F;
+    color: #fff;
+}
+
 .mr20 {
-    margin-right: 20px;
+    margin-right: 20px!important;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-label {
@@ -109,4 +127,12 @@ input.mat-input-element {
             }
         }
     }
+}
+
+.clearfix {
+    clear: both;
+}
+
+.row {
+    display: flex
 }

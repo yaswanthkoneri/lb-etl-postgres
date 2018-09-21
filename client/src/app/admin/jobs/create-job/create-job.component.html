@@ -1,16 +1,33 @@
-<form name="createjobform" [formGroup]="createJobForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <mat-form-field>
-            <input type="text" matInput placeholder="Job name" formControlName="jobname" class="form-control" />
-        </mat-form-field>
-        <!-- <input type="text" matInput placeholder="upload file" formControlName="uploadfile" class="form-control" /> -->
-        <input #fileInput type="file" name="thumbnailfiles" (click)="fileInput.value = null" value="" (change)="uploadThumbnailDatasource($event)" multiple/>
-        <mat-form-field>
-            <input type="text" matInput placeholder="Arguments" formControlName="arguments" class="form-control" />
-        </mat-form-field>
+<div class="layout">
+    <div *ngIf="loading">
+        <mat-spinner></mat-spinner>
     </div>
-    <div>
-        <button mat-button>cancel</button>
-        <button mat-button>create job</button>
-    </div>
-</form>
+    <div class="page-heading mb20">Create Job</div>
+    <div class="clearfix"></div>
+    <form name="createjobform" [formGroup]="createJobForm" (ngSubmit)="onSubmit()">
+        <div class="grid-container">
+            <div class="grid-item">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Job name" formControlName="jobname" class="form-control" />
+                </mat-form-field>
+            </div>
+            <div class="grid-item">
+                <div class="upload-btn-wrapper">
+                    <button class="btn"><mat-icon  class="pull-left">file_upload</mat-icon> <div class="pull-left">Upload a file</div></button>
+                    <input #fileInput type="file" name="thumbnailfiles" (click)="fileInput.value = null" value="" (change)="uploadThumbnailDatasource($event)" multiple/>
+                </div>
+            </div>
+            <div class="grid-item">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Arguments" formControlName="arguments" class="form-control" />
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <span class="fill-space"></span>
+
+            <button mat-button class="mr20 btn-cancel">Cancel</button>
+            <button mat-button class="btn-create">Create Job</button>
+        </div>
+    </form>
+</div>

@@ -4,8 +4,16 @@
             <img src="/assets/images/etl-dashboard.jpg" />
         </mat-toolbar>
         <mat-nav-list>
-            <a mat-list-item routerLink="jobs" routerLinkActive="active">Jobs</a>
-            <a mat-list-item routerLink="history" routerLinkActive="active">History</a>
+            <a mat-list-item routerLink="jobs" routerLinkActive="active">
+                <div>Jobs</div>
+                <span class="fill-space"></span>
+                <mat-icon>description</mat-icon>
+            </a>
+            <a mat-list-item routerLink="history" routerLinkActive="active">
+                <div>History</div>
+                <span class="fill-space"></span>
+                <mat-icon>history</mat-icon>
+            </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
