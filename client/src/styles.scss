@@ -43,6 +43,9 @@ button {
 
 .layout {
     padding: 30px;
+    @media (max-width: 812px) {
+        padding: 20px;
+    }
 }
 
 .fill-space {
@@ -53,6 +56,11 @@ button {
     font-size: 22px;
     color: #F48C00;
     font-weight: 700;
+    @media (max-width: 768px) {
+        margin-bottom: 20px;
+        margin-top: 0;
+        width: 100%;
+    }
 }
 
 .mt10 {
@@ -143,4 +151,9 @@ input.mat-input-element {
 
 .row {
     display: flex
+}
+
+.table-set {
+    overflow: auto;
+    width: 100%;
 }

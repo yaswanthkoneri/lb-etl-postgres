@@ -2,6 +2,9 @@
     display: grid;
     grid-column-gap: 0;
     grid-template-columns: auto auto;
+    @media (max-width: 768px) {
+        grid-template-columns: auto;
+    }
 }
 
 .grid-item {
@@ -30,11 +33,20 @@
     .login-logo-txt {
         font-size: 22px;
         margin-bottom: 30px;
+        @media (max-width: 812px) and (min-width: 768px) {
+            margin-bottom: 20px;
+        }
+        @media (max-width: 812px) {
+            font-size: 18px;
+        }
     }
     .form-group,
     button {
         width: 100%;
         margin-bottom: 30px;
+        @media (max-width: 812px) and (min-width: 768px) {
+            margin-bottom: 20px;
+        }
         .mat-form-field {
             width: 100%;
         }
@@ -53,5 +65,30 @@
         padding: 5px;
         border-radius: 2px;
         display: inline-block;
+    }
+}
+
+.mobile-hide {
+    display: block;
+}
+
+.web-hide {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-hide {
+        display: none;
+    }
+    .web-hide {
+        display: block;
+    }
+}
+
+@media (max-width: 812px) {
+    .login-logo {
+        img {
+            width: 100%;
+        }
     }
 }

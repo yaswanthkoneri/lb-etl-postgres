@@ -43,11 +43,22 @@
 .mat-toolbar-row,
 .mat-toolbar-single-row {
     padding: 0 30px;
+    @media (max-width: 812px) {
+        padding: 0 10px;
+    }
 }
 
 .mat-nav-list {
     padding-top: 0;
     .active {
         background-color: #052F6B
+    }
+}
+
+.engage-logo {
+    img {
+        @media (max-width: 812px) {
+            width: 160px;
+        }
     }
 }

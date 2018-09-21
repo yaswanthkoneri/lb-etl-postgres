@@ -5,3 +5,12 @@ table {
 th.mat-sort-header-sorted {
     color: black;
 }
+
+.search-icon {
+    position: absolute;
+    right: 0;
+}
+
+input.mat-input-element {
+    width: 80%;
+}
