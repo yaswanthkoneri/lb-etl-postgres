@@ -56,7 +56,7 @@ button {
     font-size: 22px;
     color: #F48C00;
     font-weight: 700;
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
         margin-bottom: 20px;
         margin-top: 0;
         width: 100%;
@@ -75,6 +75,10 @@ button {
     .mat-form-field-appearance-legacy {
         .mat-form-field-infix {
             padding: 0 0 5px 0;
+            width: 180px;
+            @media (max-width: 768px) {
+                width: 130px;
+            }
         }
     }
 }
