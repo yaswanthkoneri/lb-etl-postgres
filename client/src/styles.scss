@@ -1,4 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.mat-form-field,
+button {
+    font-family: 'Quicksand', sans-serif!important;
+}
+
+.vh-center {
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    top: 50%;
+    width: 656px;
+    max-width: 100%;
+    left: 50%;
+    position: absolute;
+}
+
+.text-center {
+    text-align: center
+}
+
+.pull-right {
+    float: right;
+}
