@@ -11,6 +11,7 @@ export class CreateJobComponent implements OnInit {
   createJobForm: FormGroup;
   formData: FormData = new FormData();
   fileName: String ;
+  fileDetails: any;
   constructor( private formBuilder: FormBuilder, private router: Router, private jobsService: JobsService) { }
 
   ngOnInit() {
@@ -24,10 +25,10 @@ export class CreateJobComponent implements OnInit {
   }
   uploadFile(fileInput: any) {
     if (event) {
-      const fileDetails = <File>fileInput.target.files[0];
-      this.formData.append('file', fileDetails);
-      this.fileName = fileDetails.name;
-      // for (let i = 0; i < fileDetails.length; i++) {
+      this.fileDetails = <File>fileInput.target.files[0];
+      // this.formData.append('file', fileDetails);
+      this.fileName = this.fileDetails.name;
+     // for (let i = 0; i < fileDetails.length; i++) {
       //   this.formData.append('files', fileDetails[i]);
       //   this.fileName = fileDetails[i].name;
       // }
@@ -39,12 +40,15 @@ export class CreateJobComponent implements OnInit {
   createjob() {
     const job = this.createJobForm.value;
     console.log(job);
-    this.jobsService.createJob(this.formData, job).subscribe((data: any) => {
-      console.log(data);
-      this.router.navigate(['admin/jobs']);
+    this.formData.append('file', this.fileDetails);
+    this.jobsService.createJob(job).subscribe((res: any) => {
+      console.log(res);
+      const createdjob = res;
+      this.jobsService.jobFileUpload(this.formData, createdjob).subscribe((data: any) => {
+        if (data.status === 'success') {
+          this.router.navigate(['admin/jobs']);
+        }
+      });
     });
-
   }
-
-
 }
