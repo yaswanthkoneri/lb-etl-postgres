@@ -14,4 +14,10 @@ export class JobsService {
        }
      ));
   }
+  createJob(jobfile, job) {
+    return this.http.post(EndPoint.HOST_URL + 'jobs' , jobfile, job).pipe(map( data => {
+      return data;
+    }
+    ));
+  }
 }
