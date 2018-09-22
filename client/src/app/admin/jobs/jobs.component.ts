@@ -22,7 +22,7 @@ export class JobsComponent implements OnInit {
   constructor(private jobsService: JobsService, private router: Router) { }
   dataSource;
   ELEMENT_DATA = [];
-  displayedColumns: string[] = ['id', 'name', 'no_of_error_records', 'no_of_input_records', 'no_of_output_records'];
+  displayedColumns: string[] = ['id', 'name', 'no_of_error_records', 'no_of_input_records', 'no_of_output_records', 'status', 'action'];
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -44,6 +44,9 @@ export class JobsComponent implements OnInit {
   }
   createJob() {
     this.router.navigate(['admin/jobs/createjob']);
+  }
+  runjob(element) {
+    console.log(element);
   }
 
 }
