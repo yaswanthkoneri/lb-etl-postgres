@@ -15,8 +15,8 @@ export class CreateJobComponent implements OnInit {
 
   ngOnInit() {
     this.createJobForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      arguments: ['', Validators.required],
+      name: '',
+      arguments: '',
   });
   }
   navigateToListViewUrl() {
@@ -24,11 +24,13 @@ export class CreateJobComponent implements OnInit {
   }
   uploadFile(fileInput: any) {
     if (event) {
-      const fileDetails = <Array<File>>fileInput.target.files;
-      for (let i = 0; i < fileDetails.length; i++) {
-        this.formData.append('files', fileDetails[i]);
-        this.fileName = fileDetails[i].name;
-      }
+      const fileDetails = <File>fileInput.target.files[0];
+      this.formData.append('file', fileDetails);
+      this.fileName = fileDetails.name;
+      // for (let i = 0; i < fileDetails.length; i++) {
+      //   this.formData.append('files', fileDetails[i]);
+      //   this.fileName = fileDetails[i].name;
+      // }
     } else {
       delete this.formData;
       this.formData = new FormData();
@@ -36,6 +38,7 @@ export class CreateJobComponent implements OnInit {
   }
   createjob() {
     const job = this.createJobForm.value;
+    console.log(job);
     this.jobsService.createJob(this.formData, job).subscribe((data: any) => {
       console.log(data);
       this.router.navigate(['admin/jobs']);
