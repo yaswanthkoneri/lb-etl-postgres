@@ -6,6 +6,7 @@ var IncomingForm = require('formidable').IncomingForm;
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var path = require('path');
+var exec = require('child_process').exec
 
 var app = module.exports = loopback();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -77,3 +78,17 @@ app.route('/download/:id').get(function(req, res){
     var file = `${__dirname}/data/${req.params.id}`;
     res.download(file); // Set disposition and send it.
 });
+
+app.route('/run/:id').get(function(req, res) {
+    var staticCommand =`${__dirname}`
+    exec(`${staticCommand}/${req.params.id}`,function(err,stdout,stderr){
+        if (err){
+            console.error(err)
+        }
+        if (stderr){
+            console.log(stderr)
+        }
+        console.log(stdout)
+    })
+    res.json({"status":"success","time":new Date.now()});
+  });
