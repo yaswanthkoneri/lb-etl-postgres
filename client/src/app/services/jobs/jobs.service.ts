@@ -14,10 +14,16 @@ export class JobsService {
        }
      ));
   }
-  createJob(jobfile, job) {
-    return this.http.post(EndPoint.HOST_URL + 'jobs' , jobfile, job).pipe(map( data => {
+  createJob(job) {
+    return this.http.post(EndPoint.HOST_URL + 'jobs' , job).pipe(map( data => {
       return data;
     }
     ));
   }
+  jobFileUpload(formdata, res) {
+    return this.http.post(`${EndPoint.HOST_URL}jobs/fileupload?name=${res.name}`, formdata).pipe(map(data => {
+      return data;
+    }));
+  }
 }
+
