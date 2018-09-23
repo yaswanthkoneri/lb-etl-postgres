@@ -5,6 +5,7 @@ var boot = require('loopback-boot');
 var IncomingForm = require('formidable').IncomingForm;
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var path = require('path');
 
 var app = module.exports = loopback();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -31,26 +32,48 @@ boot(app, __dirname, function(err) {
     app.start();
 });
 
+function readFile(srcPath) {
+  return new Promise(function (resolve, reject) {
+      fs.readFile(srcPath, 'utf8', function (err, data) {
+          if (err) {
+              reject(err)
+          } else {
+              resolve(data);
+          }
+      });
+  })
+}
+
+function writeFile(savPath, data) {
+  return new Promise(function (resolve, reject) {
+      fs.writeFile(savPath, data, function (err) {
+          if (err) {
+              reject(err)
+          } else {
+              resolve();
+          }
+      });
+  })
+}
+
 app.route('/api/jobs/fileupload').post(function(req,res){
   var form = new IncomingForm();
   form.parse(req,function(err,fields,files){
       if (err) throw err;
-      console.log( typeof files.file)
-      console.log(files)
-      // console.log("BODY",req.body,fields)
       var data = JSON.stringify(files.file)
       var b = JSON.parse(data)
-      console.log(b)
       var oldpath = b.path
-      var newpath = `./data/${req.query.name}`;
-      console.log("yaswanth",newpath)
-      fs.readFile(oldpath,'utf-8',function(err,data){
-        if (err) throw err;
-        fs.writeFile (newpath, data, function(err) {
-          if (err) throw err;
-          console.log('complete');
-      });
-          // res.json({"status":"success"})
-      })
+      var newpath = `${__dirname}/data/${req.query.name}.csv`
+      readFile(oldpath).then(function(results){
+        return writeFile(newpath,results);
+      }).then(function(){
+        //done writing file, can do other things
+     })
   })
 })
+
+app.route('/download/:id').get(function(req, res){
+    // var file = `${__dirname}/data/${req.query.name}`;
+    var file = `${__dirname}/data/${req.params.id}`;
+    res.download(file); // Set disposition and send it.
+});
