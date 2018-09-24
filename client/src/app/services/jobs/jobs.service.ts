@@ -21,7 +21,12 @@ export class JobsService {
     ));
   }
   jobFileUpload(formdata, res) {
-    return this.http.post(`${EndPoint.HOST_URL}jobs/fileupload?name=${res.name}`, formdata).pipe(map(data => {
+    return this.http.post(`${EndPoint.HOST_URL}jobs/fileupload?id=${res.id}`, formdata).pipe(map(data => {
+      return data;
+    }));
+  }
+  runJob(job) {
+    return this.http.get(EndPoint.HOST_URL + 'run/' + job.id).pipe(map( data => {
       return data;
     }));
   }

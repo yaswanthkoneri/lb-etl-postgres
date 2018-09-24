@@ -44,11 +44,14 @@ export class CreateJobComponent implements OnInit {
     this.jobsService.createJob(job).subscribe((res: any) => {
       console.log(res);
       const createdjob = res;
+    this.router.navigate(['admin/jobs']);
+
       this.jobsService.jobFileUpload(this.formData, createdjob).subscribe((data: any) => {
-        if (data.status === 'success') {
-          this.router.navigate(['admin/jobs']);
-        }
-      });
-    });
+        });
+    }, (error: any) => {
+      console.log(error);
+    }
+
+    );
   }
 }

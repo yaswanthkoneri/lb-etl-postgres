@@ -1,3 +1,4 @@
+<ngx-spinner bdColor="rgba(0,0,0,0.8)" size="medium" color="#083679" type="ball-clip-rotate"></ngx-spinner>
 <div class="layout">
     <div *ngIf="loading">
         <mat-spinner></mat-spinner>
@@ -56,5 +57,5 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <mat-paginator [pageSizeOptions]="[10, 15, 20, 25]" showFirstLastButtons class="mt20"></mat-paginator>
+    <mat-paginator *ngIf="pagination" [pageSizeOptions]="[5, 10,15,20,25]" showFirstLastButtons class="mt20"></mat-paginator>
 </div>

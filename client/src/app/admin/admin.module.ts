@@ -10,6 +10,8 @@ import { JobsComponent } from './jobs/jobs.component';
 import { HistoryComponent } from './history/history.component';
 import { CreateJobComponent } from './jobs/create-job/create-job.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -17,7 +19,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(
+      { preventDuplicates: true}
+    ),
+    NgxSpinnerModule
   ],
   declarations: [
     AdminComponent,
