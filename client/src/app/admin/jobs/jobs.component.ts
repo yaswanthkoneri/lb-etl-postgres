@@ -4,12 +4,7 @@ import { JobsService } from '../../services/jobs/jobs.service';
 import { Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+
 
 
 @Component({
@@ -20,7 +15,6 @@ export interface PeriodicElement {
 export class JobsComponent implements OnInit {
   jobs: any = [];
   loading: boolean;
-  pagination = false;
   constructor(private jobsService: JobsService, private router: Router, private toastr: ToastrService,
     private spinner: NgxSpinnerService) { }
   dataSource;
@@ -35,9 +29,7 @@ export class JobsComponent implements OnInit {
   }
   getJobs() {
     this.jobsService.jobs().pipe().subscribe(data => {
-      if (data.lenght > 10) {
-        this.pagination = true;
-      }
+    
       this.loading = false;
       this.ELEMENT_DATA = data;
       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
